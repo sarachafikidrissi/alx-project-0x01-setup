@@ -1,6 +1,4 @@
 import { UserProps } from "@/interfaces";
-import React from "react";
-
 
 const UserCard: React.FC<UserProps> = ({ name, username, email, address, phone, website, company }) => {
     return (

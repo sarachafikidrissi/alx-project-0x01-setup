@@ -1,6 +1,7 @@
+import UserCard from "@/components/common/UserCard";
 import Header from "@/components/layout/Header";
 import { UserProps } from "@/interfaces";
-import React from "react";
+import React, { use } from "react";
 
 
 const Users: React.FC<{users: UserProps[]}> = ({ users }) => {
@@ -18,12 +19,13 @@ const Users: React.FC<{users: UserProps[]}> = ({ users }) => {
           </div>
   
           <div className="grid grid-cols-3 gap-4 mt-4">
-            {users.map((user) => (
-              <div key={user.id} className="p-4 border rounded-lg">
-                <h3 className="text-xl font-semibold">{user.name}</h3>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
-              </div>
+            {users?.map(({name, email, phone, address, username, website, company, id}: UserProps) => (
+                <UserCard name={name} email={email} phone={phone} address={address} username={username} website={website} company={company} />
+            //   <div key={user.id} className="p-4 border rounded-lg">
+            //     <h3 className="text-xl font-semibold">{user.name}</h3>
+            //     <p>{user.email}</p>
+            //     <p>{user.phone}</p>
+            //   </div>
             ))}
           </div>
         </main>
